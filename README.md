@@ -39,204 +39,115 @@ to detect unauthorized access and suspicious network activities in real time.
 - <img width="768" height="1365" alt="صور تيست المشروع وفى كشف الشخص الغريب " src="https://github.com/user-attachments/assets/e43f26d5-1c5b-4553-b584-b95f79e89963" />
 
 
+# 🛡️ Smart Intrusion Detection and Security System (SIDS)
+
+![Python](https://img.shields.io/badge/Python-3.9+-blue)
+![Status](https://img.shields.io/badge/Status-Completed-green)
+![Security](https://img.shields.io/badge/Cyber-Security-red)
+![IoT](https://img.shields.io/badge/IoT-RaspberryPi-orange)
 
 ---
 
-## 💻 Code Example (Face Recognition)
+## 📌 Project Description
 
-```python
-import face_recognition
+SIDS is an intelligent security system that combines both physical security and network security into a single unified platform.
 
-# Load image
-image = face_recognition.load_image_file("test_image.jpg")
-
-# Detect faces
-face_locations = face_recognition.face_locations(image)
-
-print("Faces found:", face_locations)
-# Smart Intrusion Detection and Security System
-
-## Overview
-
-Smart Intrusion Detection and Security System is an integrated security solution that combines physical security and network security into one platform.
-
-The system uses Raspberry Pi, a PIR Motion Sensor, and Face Recognition technology to monitor physical environments and detect unauthorized individuals. At the same time, it monitors network activities to identify suspicious behavior such as port scanning, ARP scanning, and other intrusion attempts.
-
-When a threat is detected, the system can capture evidence, send alerts, and store information for further investigation.
+It detects:
+- Physical intrusions using sensors + face recognition  
+- Network attacks using IDS monitoring  
 
 ---
 
-## Problem Statement
+## 📸 Project Preview
 
-Traditional security systems usually focus on only one aspect of security.
+![Project Result](assets/test_image.jpg)
 
-Some systems monitor physical access using cameras and sensors but cannot detect cyber attacks.
-
-Others monitor network traffic but cannot identify unauthorized physical access.
-
-This creates a security gap where attackers can exploit either the physical environment or the network infrastructure.
+📁 File: `test_image.jpg`
 
 ---
 
-## Proposed Solution
+## ❗ Problem Statement
 
-Our solution integrates both physical and network security into a single intelligent system.
+Modern security systems are usually split into two separate domains:
 
-### Physical Security
+- Physical security systems (cameras, sensors, alarms)
+- Cyber security systems (network monitoring, intrusion detection)
 
-* Motion detection using PIR Sensor.
-* Face recognition for identifying authorized users.
-* Detection of unknown individuals.
-* Automatic image capture of intruders.
-* Sending captured data to the server.
+This separation creates several critical issues:
 
-### Network Security
+- Security gaps between physical and digital environments  
+- Lack of unified monitoring and response system  
+- Delayed detection of combined or multi-layer attacks  
+- Limited intelligence in traditional surveillance systems  
+- No real-time correlation between physical events and network activity  
 
-* Monitoring network traffic.
-* Detecting Port Scanning attacks.
-* Detecting ARP Scanning activities.
-* Honeypot-based intrusion detection.
-* Logging suspicious activities.
-* Automatic blocking of malicious IP addresses.
+As a result, attackers can exploit weaknesses in one layer without being detected by the other.
 
 ---
 
-## System Architecture
+## 💡 Solution
 
-1. PIR Sensor detects movement.
-2. Raspberry Pi activates the camera.
-3. Face Recognition identifies the detected person.
-4. If the person is unknown:
+This project solves these problems by building a unified intelligent security system that integrates both layers in real time.
 
-   * Capture image.
-   * Send image to server.
-   * Generate alert.
-5. IDS continuously monitors network traffic.
-6. Suspicious activities are detected and logged.
-7. Malicious IPs can be blocked automatically.
+The system combines:
 
----
+- Motion detection using PIR sensors  
+- Face recognition for identity verification  
+- Intruder image capturing and logging  
+- Network intrusion detection (IDS)  
+- Real-time alert generation  
 
-## Technologies Used
-
-### Hardware
-
-* Raspberry Pi
-* PIR Motion Sensor
-* Raspberry Pi Camera Module
-
-### Software
-
-* Python
-* OpenCV
-* Face Recognition Library
-* Flask
-* Requests
-* Base64 Encoding
-* IDS Components
-* Firewall Rules
+All components work together to provide faster and smarter security decisions.
 
 ---
 
-## Features
+## ⚠️ Challenges & Solutions
 
-* Real-time motion detection.
-* Real-time face recognition.
-* Unknown person detection.
-* Image capture and transmission.
-* Intrusion Detection System (IDS).
-* Port Scan Detection.
-* ARP Scan Detection.
-* Honeypot Monitoring.
-* Alert Generation.
-* Automatic Threat Response.
+- Large file uploads on GitHub → removed unnecessary files and added `.gitignore`
+- Embedded repository issue → fixed by removing nested git repo
+- Secret exposure risk → removed sensitive service account files
+- Push conflicts → resolved by cleaning and reinitializing repository
 
 ---
 
-## Installation
+## 🚀 Features
 
-### 1. Clone Repository
+- Real-time motion detection  
+- Face recognition system  
+- Intruder image capture  
+- IDS network monitoring  
+- Port scan detection  
+- ARP scan detection  
+- Alert system  
+- Automatic threat logging  
+
+---
+
+## 🧰 Tech Stack
+
+- Python 🐍  
+- OpenCV 👁️  
+- face_recognition library  
+- Flask 🌐  
+- Raspberry Pi 🍓  
+- Networking / IDS tools  
+- JSON logging system  
+
+---
+
+## 📁 Project Structure
 
 ```bash
-git clone https://github.com/your-username/project-name.git
-cd project-name
-```
-
-### 2. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Add Authorized Faces
-
-Place images of authorized users inside:
-
-```text
-known_faces/
-```
-
-Example:
-
-```text
-known_faces/
-├── Ahmed.jpg
-├── Ali.jpg
-├── Ezzat.jpg
-```
-
-### 4. Configure Webhook URL
-
-Open the main script and update:
-
-```python
-WEBHOOK_URL = "YOUR_SERVER_URL/upload"
-```
-
-### 5. Start Flask Server
-
-```bash
-python server.py
-```
-
-### 6. Start Main Security System
-
-```bash
-python main.py
-```
-
-### 7. Start IDS Module
-
-```bash
-python ids.py
-```
-
+SIDS/
+├── face app/
+├── known_faces/
+├── assets/
+│   └── test_image.jpg
+├── ids.py
+├── send_alert.py
+├── server.py
+├── alerts.json
+├── scan_log.json
 ---
 
-## Usage
-
-1. The PIR sensor detects motion.
-2. The camera starts automatically.
-3. Face recognition identifies the person.
-4. Unknown individuals are recorded and reported.
-5. Network traffic is continuously monitored.
-6. Intrusion attempts are detected and logged.
-7. Security alerts are generated when threats are found.
-
----
-
-## Future Improvements
-
-* Mobile application integration.
-* Cloud storage support.
-* AI-based anomaly detection.
-* Multi-camera support.
-* Real-time dashboard.
-* Advanced threat intelligence integration.
-
----
-
-## Project Goal
-
-The main goal of this project is to provide a low-cost intelligent security platform capable of protecting both physical environments and computer networks through automation, monitoring, and threat detection.
 
