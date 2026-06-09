@@ -134,6 +134,19 @@ All components work together to provide faster and smarter security decisions.
 - JSON logging system  
 
 ---
+## 🛡️ Security Standards (OWASP Integration)
+
+In future versions, the system can be improved by aligning with **OWASP (Open Web Application Security Project)** best practices to strengthen security coverage.
+
+Possible integrations include:
+
+- OWASP Top 10 awareness in system design (Injection, Broken Authentication, etc.)
+- Input validation and sanitization for all incoming data
+- Secure handling of sensitive files (e.g., encryption of logs and alerts)
+- Secure authentication system for dashboard access
+- Protection against unauthorized API access
+- Secure logging and monitoring practices to prevent data tampering
+- Regular security auditing and penetration testing
 
 ## 📁 Project Structure
 
